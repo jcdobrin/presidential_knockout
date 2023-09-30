@@ -1,0 +1,109 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "AdMob",
+"language": "GDScript",
+"path": "res://admob-lib/admob.gd"
+} ]
+_global_script_class_icons={
+"AdMob": "res://admob-lib/icon.png"
+}
+
+[application]
+
+config/name="New Game Project"
+run/main_scene="res://MainScreen/MainScreen.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+global="*res://MainScreen/global.tscn"
+
+[display]
+
+window/size/width=854
+window/size/height=480
+window/size/borderless=true
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+
+[input]
+
+gui_start_game={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_getup={
+"deadzone": 0.0,
+"events": [  ]
+}
+gui_start_game_simp={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_game_mode={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_support={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_fight1={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_fight2={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_fight3={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_game_mode_easy={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_game_mode_normal={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_game_mode_hard={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_quit={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_pause={
+"deadzone": 0.5,
+"events": [  ]
+}
+gui_resume={
+"deadzone": 0.5,
+"events": [  ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+quality/driver/fallback_to_gles2=true
+vram_compression/import_etc=true
+environment/default_clear_color=Color( 0, 0.972549, 0.176471, 1 )
+environment/default_environment="res://default_env.tres"

@@ -1,0 +1,254 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MainScreen/FightSelect.gd" type="Script" id=2]
+[ext_resource path="res://Buttons/blank_unpressed.png" type="Texture" id=3]
+[ext_resource path="res://Buttons/blank_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/glitch_001.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Screens/logo3.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 41
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 5.0
+step = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="FightSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 49.4852, 99.9411, 149.966, 199.992, 249.545, 299.57, 349.596, 450.027, 399.573, 499.781, 268.92, 367.131 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 104.675, 497.371 ]
+}
+Fight1Page = "res://FightLevels/Fight1.tscn"
+Fight2Page = "res://FightLevels/Fight2.tscn"
+Fight3Page = "res://FightLevels/Fight3.tscn"
+SupportPage = "res://MainScreen/Support.tscn"
+GameModePage = "res://MainScreen/LevelSelect.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
+margin_left = -37.0
+margin_top = -32.0
+margin_right = 1883.0
+margin_bottom = 1048.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 16.0
+margin_bottom = 40.0
+rect_scale = Vector2( 55.4885, 12.5813 )
+color = Color( 0.580392, 0.580392, 0.580392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight1Button" type="TouchScreenButton" parent="."]
+position = Vector2( 105, 70 )
+scale = Vector2( 1.2, 0.284 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+shape_centered = false
+shape_visible = false
+action = "gui_fight1"
+
+[node name="Fight1Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 120.0
+margin_top = 63.0
+margin_right = 333.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 1 )
+text = "Fight 1"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight2" type="Node2D" parent="."]
+
+[node name="Fight2Button" type="TouchScreenButton" parent="Fight2"]
+position = Vector2( 105, 170 )
+scale = Vector2( 1.2, 0.284 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+shape_centered = false
+shape_visible = false
+action = "gui_fight2"
+
+[node name="Fight2Label" type="Label" parent="Fight2"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 120.0
+margin_top = 163.0
+margin_right = 333.0
+margin_bottom = 232.0
+custom_fonts/font = SubResource( 1 )
+text = "Fight 2"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight3" type="Node2D" parent="."]
+
+[node name="Fight3Button" type="TouchScreenButton" parent="Fight3"]
+position = Vector2( 105, 270 )
+scale = Vector2( 1.2, 0.284 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+shape_centered = false
+shape_visible = false
+action = "gui_fight3"
+
+[node name="Fight3Label" type="Label" parent="Fight3"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 120.0
+margin_top = 263.0
+margin_right = 333.0
+margin_bottom = 332.0
+custom_fonts/font = SubResource( 1 )
+text = "Fight 3"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight4" type="Node2D" parent="."]
+
+[node name="Fight4Button" type="TouchScreenButton" parent="Fight4"]
+position = Vector2( 105, 370 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_support"
+
+[node name="Fight4Label" type="Label" parent="Fight4"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 120.0
+margin_top = 363.0
+margin_right = 333.0
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 1 )
+text = "Fight 4"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coming Soon2" type="Label" parent="Fight4"]
+modulate = Color( 1, 1, 1, 0.803922 )
+margin_left = 68.296
+margin_top = 378.617
+margin_right = 410.296
+margin_bottom = 447.617
+rect_rotation = -12.3651
+custom_fonts/font = SubResource( 2 )
+text = "Coming SOON"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SupportButt2" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 498, 270 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_support"
+
+[node name="Support2" type="Label" parent="."]
+visible = false
+modulate = Color( 0, 0.345098, 0.117647, 1 )
+margin_left = 502.0
+margin_top = 265.0
+margin_right = 737.0
+margin_bottom = 334.0
+custom_fonts/font = SubResource( 1 )
+text = "$upport"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TouchScreenButton" parent="."]
+position = Vector2( 498, 370 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_game_mode"
+
+[node name="Back" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 500.607
+margin_top = 363.16
+margin_right = 735.607
+margin_bottom = 432.16
+custom_fonts/font = SubResource( 1 )
+text = "Back"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="."]
+margin_left = 10.0
+margin_top = 47.0
+margin_right = 864.0
+margin_bottom = 527.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
+anims/Fade = SubResource( 3 )
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 10, 47 )
+stream = ExtResource( 6 )

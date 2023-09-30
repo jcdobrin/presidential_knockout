@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://FightLevels/FightLevel.gd" type="Script" id=1]
+[ext_resource path="res://FightLevels/News Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Music/Snake-Trance_Looping.ogg" type="AudioStream" id=3]
+[ext_resource path="res://UIElements/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Characters/Wallace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Characters/Fighter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UIElements/UIBars.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 180
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
+[node name="Fight Scene 3" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 240.0, 121.0, 305.316 ],
+"_edit_vertical_guides_": [ 425.0, 300.0, 550.0, 600.0, 250.0, -17.6157 ]
+}
+NextScene = "res://MainScreen/FightSelect.tscn"
+EnemyPath = NodePath("Wallace")
+PlayerPath = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 330, 120 )
+scale = Vector2( 2, 2 )
+z_index = 3
+
+[node name="Wallace" parent="." instance=ExtResource( 5 )]
+position = Vector2( 430, 200 )
+z_index = 2
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -30.0
+pitch_scale = 0.7
+autoplay = true
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="PopUps" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Text" type="Label" parent="PopUps"]
+margin_right = 853.048
+margin_bottom = 478.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "FIGHT"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" parent="." instance=ExtResource( 4 )]
+z_index = 10
+
+[node name="UIBars" parent="." instance=ExtResource( 7 )]
+PlayerPath = NodePath("../../Fight Scene 3/Player")
+EnemyPath = NodePath("../Wallace")

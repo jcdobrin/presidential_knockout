@@ -1,0 +1,201 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://UIElements/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Buttons/empty.png" type="Texture" id=2]
+[ext_resource path="res://Buttons/blank_unpressed.png" type="Texture" id=3]
+[ext_resource path="res://Buttons/blank_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Buttons/high_pressed.png" type="Texture" id=11]
+[ext_resource path="res://Buttons/dodge_pressed.png" type="Texture" id=13]
+[ext_resource path="res://Buttons/dodge_unpressed.png" type="Texture" id=15]
+[ext_resource path="res://Buttons/low_pressed.png" type="Texture" id=16]
+[ext_resource path="res://Buttons/low_unpressed.png" type="Texture" id=17]
+[ext_resource path="res://Buttons/high_unpressed.png" type="Texture" id=18]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="GUI" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 240.0, 125.6, 247.688, 349.445, 461.0, 438.06, 139.175 ],
+"_edit_vertical_guides_": [ 425.0, 300.0, 550.0, 600.0, 242.048, 22.2613, 616.0, 830.94 ]
+}
+
+[node name="LowPunchL" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 139.548, 247.688 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+normal = ExtResource( 17 )
+pressed = ExtResource( 16 )
+action = "low_punch_left"
+
+[node name="HighPunchL" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 139.548, 139.175 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+normal = ExtResource( 18 )
+pressed = ExtResource( 11 )
+action = "high_punch_left"
+
+[node name="DodgeL" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 22.386, 141.845 )
+scale = Vector2( 0.5, 0.3 )
+z_index = 1
+normal = ExtResource( 15 )
+pressed = ExtResource( 13 )
+action = "dodge_left"
+
+[node name="LowPunchR" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 718, 248 )
+rotation = 3.14159
+scale = Vector2( 0.5, -0.5 )
+z_index = 1
+normal = ExtResource( 17 )
+pressed = ExtResource( 16 )
+action = "low_punch_right"
+
+[node name="HighPunchR" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 718, 139.175 )
+rotation = 3.14159
+scale = Vector2( 0.5, -0.5 )
+z_index = 1
+normal = ExtResource( 18 )
+pressed = ExtResource( 11 )
+action = "high_punch_right"
+
+[node name="DodgeR" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 832, 144 )
+rotation = 3.14159
+scale = Vector2( 0.509208, -0.297876 )
+z_index = 1
+normal = ExtResource( 15 )
+pressed = ExtResource( 13 )
+action = "dodge_right"
+
+[node name="BlockL" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 28, 360 )
+scale = Vector2( 1.059, 0.5 )
+z_index = 1
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_block"
+
+[node name="ColorRect" type="ColorRect" parent="BlockL"]
+anchor_left = -3.75832e-08
+anchor_top = 0.00990099
+anchor_bottom = 0.00990099
+margin_left = 70.0
+margin_top = 29.0
+margin_right = 131.0
+margin_bottom = 157.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BlockR" type="TouchScreenButton" parent="."]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 616, 360 )
+scale = Vector2( 1.05882, 0.5 )
+z_index = 1
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_block"
+
+[node name="ColorRect2" type="ColorRect" parent="BlockR"]
+margin_left = 70.0
+margin_top = 31.0
+margin_right = 131.0
+margin_bottom = 159.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="UpperCutGroup" type="Node2D" parent="."]
+position = Vector2( 14, 0 )
+
+[node name="UpperCut" type="TouchScreenButton" parent="UpperCutGroup"]
+show_behind_parent = true
+material = SubResource( 1 )
+position = Vector2( 16, 65.148 )
+scale = Vector2( 1.025, 0.3 )
+z_index = 1
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_upper_cut"
+
+[node name="TextContainer" type="Node2D" parent="UpperCutGroup"]
+z_index = 1
+
+[node name="Text" type="Label" parent="UpperCutGroup/TextContainer"]
+margin_left = 32.0
+margin_top = 61.0
+margin_right = 232.0
+margin_bottom = 135.0
+custom_fonts/font = SubResource( 2 )
+text = "POWER"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GetUp" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 0, 4.00452 )
+scale = Vector2( 855.631, 476.036 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 2 )
+shape_centered = false
+shape_visible = false
+action = "gui_getup"
+
+[node name="Pause" type="TouchScreenButton" parent="."]
+position = Vector2( 769, 65 )
+scale = Vector2( 0.3, 0.3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_pause"
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+margin_left = 53.0
+margin_top = 32.0
+margin_right = 86.0
+margin_bottom = 173.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Pause"]
+margin_left = 110.0
+margin_top = 32.0
+margin_right = 143.0
+margin_bottom = 174.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://CutScenes/AndersonCooperCutScene.gd" type="Script" id=5]
+[ext_resource path="res://FightLevels/Fight1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://CutScenes/cutscene_10001-0336.ogv" type="VideoStream" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CutScene"
+length = 20.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("FAKE NEWS:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ORANGEMAN BAD:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Remote:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4, 10, 10.5, 11, 11.5, 12, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 37.4, 37.4, 300.0, 600.0, 800.0, 1000.0, 355.3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Remote:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 4, 10, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 392.919, 189.378 ), Vector2( 392.919, 189.378 ), Vector2( 960.885, 170.297 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Remote:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4, 5, 10, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Remote:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 10, 12, 14.9, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+NextScene = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CutScene = SubResource( 1 )
+
+[node name="ORANGEMAN BAD" type="Label" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 245.722
+margin_top = 268.197
+margin_right = 658.722
+margin_bottom = 300.197
+custom_fonts/font = SubResource( 2 )
+text = "breaking news, ORANGE MAN BAD"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FAKE NEWS" type="Label" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 413.533
+margin_top = 50.9424
+margin_right = 736.533
+margin_bottom = 109.942
+custom_fonts/font = SubResource( 3 )
+text = "FAKE NEWS!!!!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remote" type="ColorRect" parent="."]
+visible = false
+margin_left = 392.919
+margin_top = 189.378
+margin_right = 416.919
+margin_bottom = 229.378
+rect_rotation = 37.4
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 856.0
+margin_bottom = 482.0
+stream = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

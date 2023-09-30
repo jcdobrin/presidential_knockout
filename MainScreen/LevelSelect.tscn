@@ -1,0 +1,282 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MainScreen/LevelSelect.gd" type="Script" id=2]
+[ext_resource path="res://MainScreen/FightSelect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Buttons/blank_unpressed.png" type="Texture" id=4]
+[ext_resource path="res://Buttons/blank_pressed.png" type="Texture" id=5]
+[ext_resource path="res://Screens/logo3.png" type="Texture" id=6]
+[ext_resource path="res://Sounds/glitch_001.ogg" type="AudioStream" id=7]
+[ext_resource path="res://MainScreen/Support.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 41
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade"
+length = 5.0
+step = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 49.4852, 99.9411, 149.966, 199.992, 249.545, 299.57, 349.596, 450.027, 399.573, 499.781 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 451.24, 105.038, 497.367 ]
+}
+FightSelectPage = ExtResource( 3 )
+SupportPage = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 16.0
+margin_bottom = 40.0
+rect_scale = Vector2( 55.4885, 12.5813 )
+color = Color( 0.329412, 0.4, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
+margin_left = -37.0
+margin_top = -32.0
+margin_right = 1883.0
+margin_bottom = 1048.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StoryButt" type="TouchScreenButton" parent="."]
+position = Vector2( 105, 70 )
+scale = Vector2( 1.2, 0.284 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+shape_centered = false
+shape_visible = false
+
+[node name="Story" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 118.0
+margin_top = 63.0
+margin_right = 331.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 1 )
+text = "STORY"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SimpButt" type="TouchScreenButton" parent="."]
+position = Vector2( 105, 170 )
+scale = Vector2( 1.2, 0.284 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+shape_centered = false
+shape_visible = false
+action = "gui_game_mode_easy"
+
+[node name="SIMP" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 141.016
+margin_top = 162.006
+margin_right = 305.016
+margin_bottom = 231.006
+custom_fonts/font = SubResource( 1 )
+text = "EASY"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NormButt" type="TouchScreenButton" parent="."]
+position = Vector2( 105, 270 )
+scale = Vector2( 1.2, 0.284 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+shape_centered = false
+shape_visible = false
+action = "gui_game_mode_normal"
+
+[node name="Normal" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 118.016
+margin_top = 263.0
+margin_right = 331.016
+margin_bottom = 332.0
+custom_fonts/font = SubResource( 1 )
+text = "Normal"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HardButt" type="TouchScreenButton" parent="."]
+position = Vector2( 105, 370 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+action = "gui_game_mode_hard"
+
+[node name="HARD" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 140.0
+margin_top = 363.0
+margin_right = 304.0
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 1 )
+text = "HARD"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButt" type="TouchScreenButton" parent="."]
+position = Vector2( 498, 370 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+action = "gui_quit"
+
+[node name="Quit" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 532.173
+margin_top = 363.0
+margin_right = 696.173
+margin_bottom = 432.0
+custom_fonts/font = SubResource( 1 )
+text = "QUIT"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AchieveButt" type="TouchScreenButton" parent="."]
+position = Vector2( 498, 70 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+
+[node name="Achievement" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 518.0
+margin_top = 63.0
+margin_right = 725.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 1 )
+text = "Trophy"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SupportButt2" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 498, 270 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+action = "gui_support"
+
+[node name="Support2" type="Label" parent="."]
+visible = false
+modulate = Color( 0, 0.345098, 0.117647, 1 )
+margin_left = 502.0
+margin_top = 265.0
+margin_right = 737.0
+margin_bottom = 334.0
+custom_fonts/font = SubResource( 1 )
+text = "$upport"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="."]
+margin_left = 47.8423
+margin_top = 47.0
+margin_right = 901.842
+margin_bottom = 527.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
+anims/Fade = SubResource( 2 )
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 48, 47 )
+stream = ExtResource( 7 )
+
+[node name="Coming Soon" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.592157 )
+margin_left = 88.0
+margin_top = 102.0
+margin_right = 478.0
+margin_bottom = 180.0
+rect_rotation = -6.50033
+custom_fonts/font = SubResource( 3 )
+text = "Coming SOON"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coming Soon2" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.592157 )
+margin_left = 487.0
+margin_top = 102.0
+margin_right = 877.0
+margin_bottom = 180.0
+rect_rotation = -6.50033
+custom_fonts/font = SubResource( 3 )
+text = "Coming SOON"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

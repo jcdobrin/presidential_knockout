@@ -1,0 +1,331 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sounds/close_004.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/impactPunch_heavy_000.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/spaceTrash1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://UIElements/UIBars.gd" type="Script" id=5]
+[ext_resource path="res://Buttons/Menu.png" type="Texture" id=6]
+[ext_resource path="res://Buttons/blank_unpressed.png" type="Texture" id=7]
+[ext_resource path="res://Buttons/blank_pressed.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -8
+extra_spacing_bottom = -8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_top = -18
+extra_spacing_bottom = -18
+font_data = ExtResource( 1 )
+
+[node name="UIBars" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 240.0, 121.0, 305.316 ],
+"_edit_vertical_guides_": [ 425.0, 300.0, 550.0, 600.0, 250.0 ]
+}
+
+[node name="LifeBg" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 25.0
+margin_right = 292.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerLifeFg" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 25.0
+margin_right = 292.0
+margin_bottom = 40.0
+color = Color( 0.792157, 0.113725, 0.0823529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyBg" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 43.0
+margin_right = 292.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerStaminaFg" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 43.0
+margin_right = 292.0
+margin_bottom = 56.0
+color = Color( 0, 0.647059, 0.0117647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyLifeBg" type="ColorRect" parent="."]
+margin_left = 560.0
+margin_top = 25.0
+margin_right = 840.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 280, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyLifeFg" type="ColorRect" parent="."]
+margin_left = 560.0
+margin_top = 25.0
+margin_right = 840.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 280, 0 )
+color = Color( 0.792157, 0.113725, 0.0823529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeOut" type="Node2D" parent="."]
+z_index = 3
+
+[node name="Black" type="ColorRect" parent="FadeOut"]
+margin_left = 1.41418
+margin_top = -0.414215
+margin_right = 853.414
+margin_bottom = 476.586
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="."]
+margin_left = 352.982
+margin_top = 12.6908
+margin_right = 388.982
+margin_bottom = 38.6908
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 4, 4 )
+text = "00:00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenu" type="Node2D" parent="."]
+visible = false
+z_index = 10
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+margin_right = 855.0
+margin_bottom = 483.0
+color = Color( 0, 0, 0, 0.533333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="PauseMenu"]
+margin_left = 246.166
+margin_top = 24.9734
+margin_right = 1007.17
+margin_bottom = 915.973
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="TouchScreenButton" parent="PauseMenu"]
+position = Vector2( 301.942, 59.9731 )
+scale = Vector2( 1.34948, 0.307569 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+action = "gui_resume"
+
+[node name="Quit" type="TouchScreenButton" parent="PauseMenu"]
+position = Vector2( 301.942, 148.973 )
+scale = Vector2( 1.33304, 0.307569 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+action = "gui_quit"
+
+[node name="ResumeLabel" type="Label" parent="PauseMenu"]
+margin_left = 314.0
+margin_top = 62.0
+margin_right = 550.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 4 )
+text = "RESUME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitLabel" type="Label" parent="PauseMenu"]
+margin_left = 314.0
+margin_top = 151.0
+margin_right = 550.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 4 )
+text = "QUIT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePopup" type="Node2D" parent="."]
+visible = false
+z_index = 10
+
+[node name="ColorRect2" type="ColorRect" parent="ScorePopup"]
+margin_right = 855.0
+margin_bottom = 483.0
+color = Color( 0, 0, 0, 0.533333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ScorePopup"]
+margin_left = 246.166
+margin_top = 24.9734
+margin_right = 1007.17
+margin_bottom = 915.973
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreNames" type="Label" parent="ScorePopup"]
+margin_left = 255.0
+margin_top = 39.0
+margin_right = 781.0
+margin_bottom = 207.0
+rect_scale = Vector2( 0.697991, 2.45631 )
+custom_fonts/font = SubResource( 1 )
+text = "Flawless
+Perfect
+Time
+Time Bonus
+Power Attack Bonus"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePoints" type="Label" parent="ScorePopup"]
+margin_left = 254.0
+margin_top = 38.0
+margin_right = 771.0
+margin_bottom = 207.0
+rect_scale = Vector2( 0.697991, 2.45631 )
+custom_fonts/font = SubResource( 1 )
+text = "100000
+100000
+100000
+100000
+100000"
+align = 2
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewRecord" type="Label" parent="ScorePopup"]
+visible = false
+margin_left = 209.523
+margin_top = 92.936
+margin_right = 859.523
+margin_bottom = 211.936
+rect_scale = Vector2( 0.697991, 2.45631 )
+custom_fonts/font = SubResource( 2 )
+text = "New Record"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinalScore" type="Node2D" parent="ScorePopup"]
+visible = false
+position = Vector2( 0, -71 )
+
+[node name="Text" type="Label" parent="ScorePopup/FinalScore"]
+margin_left = 251.0
+margin_top = 400.0
+margin_right = 506.0
+margin_bottom = 423.0
+rect_scale = Vector2( 0.697991, 2.45631 )
+custom_fonts/font = SubResource( 3 )
+text = "Final Score:"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="ScorePopup/FinalScore"]
+margin_left = 432.0
+margin_top = 398.0
+margin_right = 702.0
+margin_bottom = 423.0
+rect_scale = Vector2( 0.697991, 2.45631 )
+custom_fonts/font = SubResource( 3 )
+text = "100000000000"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtons" type="Node2D" parent="ScorePopup"]
+visible = false
+
+[node name="Back" type="TouchScreenButton" parent="ScorePopup/MenuButtons"]
+position = Vector2( 319.364, 387.201 )
+scale = Vector2( 0.4, 0.4 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+
+[node name="Next" type="TouchScreenButton" parent="ScorePopup/MenuButtons"]
+position = Vector2( 447.364, 387.201 )
+scale = Vector2( 0.4, 0.4 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 8 )
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+pitch_scale = 2.3
+
+[node name="Win" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 2.0
+pitch_scale = 1.35
+
+[node name="Heavy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://FightLevels/FightLevel.gd" type="Script" id=2]
+[ext_resource path="res://Music/Snake-Trance_Looping.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Characters/Harris.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Characters/Fighter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UIElements/GUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UIElements/UIBars.tscn" type="PackedScene" id=7]
+[ext_resource path="res://FightLevels/News Room.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Characters/Biden.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Characters/Pelosi.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Characters/Cruz.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Characters/McConnel.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 180
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Fight Scene 2" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 240.0, 121.0, 305.316 ],
+"_edit_vertical_guides_": [ 425.0, 300.0, 550.0, 600.0, 250.0 ]
+}
+NextScene = "res://MainScreen/FightSelect.tscn"
+EnemyPath = NodePath("Biden")
+PlayerPath = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 330, 120 )
+scale = Vector2( 2, 2 )
+z_index = 3
+
+[node name="McConnel" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 430, 230 )
+z_index = 1
+
+[node name="Cruz" parent="." instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 430, 230 )
+z_index = 1
+
+[node name="Pelosi" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 430, 230 )
+z_index = 1
+
+[node name="Harris" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 430, 230 )
+z_index = 1
+
+[node name="Biden" parent="." instance=ExtResource( 9 )]
+position = Vector2( 430, 230 )
+z_index = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -30.0
+pitch_scale = 0.7
+autoplay = true
+
+[node name="Background" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="PopUps" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Text" type="Label" parent="PopUps"]
+margin_right = 853.048
+margin_bottom = 478.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "FIGHT"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="UIBars" parent="." instance=ExtResource( 7 )]
+visible = false
+PlayerPath = NodePath("../Player")
+EnemyPath = NodePath("../Harris")

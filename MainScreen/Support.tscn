@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Font/SigmarOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MainScreen/Support.gd" type="Script" id=2]
+[ext_resource path="res://Buttons/blank_unpressed.png" type="Texture" id=3]
+[ext_resource path="res://Buttons/blank_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Screens/logo3.png" type="Texture" id=6]
+[ext_resource path="res://Sounds/glitch_001.ogg" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 41
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 5.0
+step = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 49.4852, 99.9411, 149.966, 199.992, 249.545, 299.57, 349.596, 450.027, 399.573, 499.781 ],
+"_edit_use_anchors_": false
+}
+BackPage = "res://MainScreen/LevelSelect.tscn"
+SupportPage = "res://MainScreen/Support.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
+margin_left = -37.0
+margin_top = -32.0
+margin_right = 1883.0
+margin_bottom = 1048.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 52.0
+margin_right = 853.0
+margin_bottom = 284.0
+custom_fonts/font = SubResource( 1 )
+text = "Thank you for considering to support
+ Wrong Prize Games
+Press Support to contribute $1.99 to help fund
+the development of the game 
+and unlock future updates."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Node2D" parent="."]
+position = Vector2( 10, 47 )
+
+[node name="Fight4Button" type="TouchScreenButton" parent="Back"]
+position = Vector2( 57.084, 320.118 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_game_mode"
+
+[node name="Fight4Label" type="Label" parent="Back"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 92.016
+margin_top = 316.118
+margin_right = 282.016
+margin_bottom = 385.118
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SupportButt2" type="TouchScreenButton" parent="."]
+position = Vector2( 550.084, 367.118 )
+scale = Vector2( 1.2, 0.302 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+action = "gui_support"
+
+[node name="Support2" type="Label" parent="."]
+modulate = Color( 0, 0.345098, 0.117647, 1 )
+margin_left = 553.016
+margin_top = 363.118
+margin_right = 788.016
+margin_bottom = 432.118
+custom_fonts/font = SubResource( 2 )
+text = "$upport"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="."]
+margin_left = 10.0
+margin_top = 47.0
+margin_right = 864.0
+margin_bottom = 527.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
+anims/Fade = SubResource( 3 )
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 10, 47 )
+stream = ExtResource( 7 )
